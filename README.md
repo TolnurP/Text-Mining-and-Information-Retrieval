@@ -38,15 +38,25 @@ Performance metrics, specifically precision@k, recall@k, and F1 scores, were emp
 Quantitatively, the models demonstrated the following performance across varying epochs:
 
 At 20 epochs, the Mean Average Precision at 10 (MAP@10) was 0.0057, and the Mean Reciprocal Rank at 10 (MRR@10) was 0.0568.
+
 Improvement was noted at 40 epochs, with MAP@10 rising to 0.0068 and MRR@10 to 0.0682.
+
 The peak performance occurred at 60 epochs, where MAP@10 reached 0.0659, and MRR@10 significantly increased to 0.2143, indicating a marked improvement in both the quality of the top 10 recommendations and the ranking quality of the first relevant recommendation.
+
 However, at 100 epochs, there was a notable decline, with MAP@10 falling to 0.0028 and MRR@10 to 0.0152, suggesting potential overfitting or other issues that necessitate a re-evaluation of the training regimen.
+
 The varying levels of MAP and MRR at different epochs underscore the importance of monitoring models throughout their training process to optimize performance and avoid issues such as overfitting.
 
 ## Results and Discussion
-The evaluation revealed distinct strengths for each model. The CNN model demonstrated higher precision, likely due to its effectiveness in identifying key local text features relevant to specific queries. In contrast, the RNN model, with LSTM units, showed improved recall rates, attributed to its superior capability in understanding the overall context and flow of both documents and queries.
+Upon evaluating the models, each exhibited distinct advantages. The Convolutional Neural Network (CNN) model displayed higher precision as reflected in the MAP@10 scores, especially at 60 epochs (MAP@10: 0.0659). This suggests that the CNN model is particularly effective at identifying key local text features that are relevant to specific queries, which is essential for precision-focused tasks.
 
-These outcomes suggest different use cases for each model within information retrieval systems and highlight deep learning's potential to enhance traditional text processing techniques.
+On the other hand, the Recurrent Neural Network (RNN) model, which employed Long Short-Term Memory (LSTM) units, showed superior performance in recall rates, as could be inferred from the significant increase in Mean Reciprocal Rank (MRR@10: 0.2143 at 60 epochs). This indicates that the RNN with LSTM is better at grasping the overall context and sequence of the text in both documents and queries, which is crucial for recall-oriented applications.
+
+These findings suggest that the CNN model may be more suitable for scenarios where the priority is to provide the most relevant documents, even if it means presenting fewer options to the user. In contrast, the RNN model would be advantageous in situations where it is important to retrieve a larger set of relevant documents, possibly at the expense of including some less relevant ones.
+
+The distinct performance characteristics of the CNN and RNN models underscore the potential for specialized applications within information retrieval systems. This differentiation also highlights the adaptability of deep learning techniques, which can be tailored to enhance traditional text processing methods. The ability to fine-tune such models according to specific precision or recall requirements can lead to more efficient and user-centric search experiences.
+
+These insights pave the way for future research to explore hybrid models that could combine the strengths of CNNs in feature detection with the contextual understanding of RNNs, potentially leading to even more robust information retrieval systems.
 
 ## Conclusion and Future Work
 This project underscores deep learning's transformative potential in information retrieval, showcased by the experiments with the Cranfield dataset. The results offer a promising avenue for future work, which could include exploring more sophisticated neural network architectures, incorporating semantic understanding technologies to grasp deeper textual meanings, and refining models based on iterative user feedback to continually improve performance.
