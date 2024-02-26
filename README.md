@@ -30,9 +30,18 @@ This model leverages convolutional layers to process text, analogous to their ap
 RNNs are tailored to handle sequential data, making them well-suited for text processing. The LSTM variant of RNNs was employed to overcome traditional RNNs' limitations in learning long-term dependencies. By remembering information for extended periods, LSTM units are particularly effective in understanding the context and flow of texts in documents and queries, enhancing the model's ability to match queries with relevant documents based on the overall context rather than isolated terms.
 
 ## Training and Evaluation
-The dataset was divided into training (70%) and testing (30%) sets, following standard practices to ensure a robust evaluation of model performance. The models were trained over several epochs, with a batch size of 32, to iteratively improve their understanding of the dataset's text structures and relevance patterns.
+Training and Evaluation
+The dataset was split into a 70% training set and a 30% testing set. The models underwent training over several epochs, with a batch size of 32. As the models trained, their ability to discern and align with the dataset's text structures and relevance patterns was progressively refined.
 
-Model performance was rigorously evaluated using metrics such as precision@k, recall@k, and F1 scores. These metrics provided a multi-faceted view of each model's retrieval effectiveness, balancing the trade-offs between returning many relevant documents (recall) and ensuring the documents returned are relevant (precision).
+Performance metrics, specifically precision@k, recall@k, and F1 scores, were employed to assess the models' retrieval effectiveness. Precision@k measures the proportion of recommended documents that are relevant, while recall@k measures the proportion of relevant documents that are recommended by the model. The F1 score is the harmonic mean of precision and recall, providing a single metric that balances the trade-off between the two.
+
+Quantitatively, the models demonstrated the following performance across varying epochs:
+
+At 20 epochs, the Mean Average Precision at 10 (MAP@10) was 0.0057, and the Mean Reciprocal Rank at 10 (MRR@10) was 0.0568.
+Improvement was noted at 40 epochs, with MAP@10 rising to 0.0068 and MRR@10 to 0.0682.
+The peak performance occurred at 60 epochs, where MAP@10 reached 0.0659, and MRR@10 significantly increased to 0.2143, indicating a marked improvement in both the quality of the top 10 recommendations and the ranking quality of the first relevant recommendation.
+However, at 100 epochs, there was a notable decline, with MAP@10 falling to 0.0028 and MRR@10 to 0.0152, suggesting potential overfitting or other issues that necessitate a re-evaluation of the training regimen.
+The varying levels of MAP and MRR at different epochs underscore the importance of monitoring models throughout their training process to optimize performance and avoid issues such as overfitting.
 
 ## Results and Discussion
 The evaluation revealed distinct strengths for each model. The CNN model demonstrated higher precision, likely due to its effectiveness in identifying key local text features relevant to specific queries. In contrast, the RNN model, with LSTM units, showed improved recall rates, attributed to its superior capability in understanding the overall context and flow of both documents and queries.
