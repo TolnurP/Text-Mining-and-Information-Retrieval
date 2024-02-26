@@ -44,6 +44,13 @@ This project underscores deep learning's transformative potential in information
 
 Future initiatives could also look into hybrid models that combine CNN and RNN strengths or delve into transfer learning and unsupervised learning approaches to leverage external datasets and knowledge bases, further enhancing retrieval accuracy and relevance.
 
+## How to Use
+For application of this project's findings:
+
+Adapt the preprocessing steps to your dataset.
+Execute model training using the provided scripts.
+Evaluate the performance of the trained model and apply it to your information retrieval tasks.
+
 ## References:
 1. Data Source: http://ir.dcs.gla.ac.uk/resources/test_collections/cran/
 2. DSSM:https://www.microsoft.com/en-us/research/wpcontent/uploads/2016/02/cikm2013_DSSM_fullversion.pdf
